@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HospitalManagementUI.Models.Doctor>
+
+@{
+    ViewData["Title"] = "DoctorDetails";
+}
+
+<h2>List Of Doctors</h2>
+<p>
+    <a asp-action="ListHospital" class="btn btn-info btn-lg">Back to Dashboard</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr style="background-color: #0074ab; color:white;">
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Qualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speciality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DayOfAvailability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeOfAvailability)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="background-color: #e6f7ff;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qualification)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Speciality)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Experience)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DayOfAvailability)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOfAvailability)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<HospitalManagementUI.Models.DTOs.Billing>
+
+@{
+    ViewData["Title"] = "BillDetail";
+}
+
+<h2>Generated Bill Details History</h2>
+<p>
+    <a asp-action="Index" class="btn btn-info btn-lg">Back to Dashboard</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr style="background-color: #0074ab; color:white;">
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConsultationsCharge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LaboratoryServiceCharge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysiotherapyServiceCharge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ECGServiceCharge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RadiologyServiceCharge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmbulanceServiceCharge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentStatus)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr style="background-color: #e6f7ff;">
+
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConsultationsCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LaboratoryServiceCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysiotherapyServiceCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ECGServiceCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RadiologyServiceCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmbulanceServiceCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentStatus)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

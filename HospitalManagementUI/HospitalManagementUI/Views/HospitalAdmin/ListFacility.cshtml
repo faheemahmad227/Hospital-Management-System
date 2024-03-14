@@ -1,0 +1,58 @@
+﻿@model IEnumerable<HospitalManagementUI.Models.DTOs.FacilityDTO>
+
+@{
+    ViewData["Title"] = "ListFacility";
+}
+
+<h2>List of Facility</h2>
+<div>
+    <a asp-action="Index" class="btn btn-primary" style="margin-bottom:10px;">Back to Dashboard</a>
+</div>
+
+@if (TempData["Updated"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["Updated"]</p>
+}
+
+
+<table class="table">
+    <thead>
+        <tr style="background-color: #0074ab; color:white;">
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalId)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.FacilityName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (ViewBag.id == item.HospitalId)
+            {
+                <tr style="background-color: #e6f7ff;">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HospitalId)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FacilityName)
+                    </td>
+                    <td>
+                        <a asp-action="FacilityEdit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a> |
+                        <a asp-action="FacilityDetails" asp-route-id="@item.Id" class="btn btn-info btn-sm">Details</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

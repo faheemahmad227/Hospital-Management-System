@@ -1,0 +1,68 @@
+﻿@model IEnumerable<HospitalManagementUI.Models.DTOs.Appointment>
+
+@{
+    ViewData["Title"] = "ListAppointment";
+}
+
+<h2>Appointment History</h2>
+<p>
+    <a asp-action="Index" class="btn btn-info btn-lg">Back to Dashboard</a>
+</p>
+@if (TempData["Success"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+}
+<table class="table">
+    <thead>
+        <tr style="background-color: #0074ab; color:white;">
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfAppointment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicalHistory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="background-color: #e6f7ff;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfAppointment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicalHistory)
+                </td>
+                <td>
+                    
+                    <a asp-action="AddFacility" asp-route-id="@item.AppointmentId" class="btn btn-warning btn-sm">Add Facility</a>
+                    <a asp-action="ListFacilityAppointment" asp-route-id="@item.AppointmentId" class="btn btn-info btn-sm">View Facility</a>
+
+                    @if (item.Status == "Close")
+                    {
+                        <a asp-action="AddDoctorFeedback" asp-route-id="@item.AppointmentId" class="btn btn-primary btn-sm">Feedback</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

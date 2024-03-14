@@ -1,0 +1,41 @@
+﻿@model HospitalManagementUI.Models.DTOs.FacilityDTO
+
+@{
+    ViewData["Title"] = "FacilityDetails";
+}
+
+<h2>Facility Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HospitalId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HospitalId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FacilityName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FacilityName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FacilityDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FacilityDescription)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="FacilityEdit" asp-route-id="@Model.Id" class="btn btn-danger">Edit</a> |
+    <a asp-action="ListFacility" class="btn btn-primary">Back to List</a>
+</div>

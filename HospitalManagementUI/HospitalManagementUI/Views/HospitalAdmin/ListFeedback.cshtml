@@ -1,0 +1,39 @@
+﻿@model IEnumerable<HospitalManagementUI.Models.DTOs.FeedbackDTO.FacilityFeedbackDTO>
+
+@{
+    ViewData["Title"] = "ListFeedback";
+}
+<h2>Feedback History</h2>
+<p>
+    <a asp-action="Index" class="btn btn-info btn-lg">Back to Dashboard</a>
+</p>
+<table class="table">
+    <thead>
+        <tr style="background-color: #0074ab; color:white;">
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacilitiesFeedback)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr style="background-color: #e6f7ff;">
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HospitalId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacilitiesFeedback)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

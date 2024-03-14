@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HospitalManagementUI.Models.DTOs.HospitalDTO>
+
+@{
+    ViewData["Title"] = "ListHospital";
+}
+<p><h1>Hospitals Available</h1>
+    <a asp-action="Index" class="btn btn-info btn-lg">Back to Dashboard</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr style="background-color: #0074ab; color:white;">
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr style="background-color: #e6f7ff;">
+            <td>
+                @Html.DisplayFor(modelItem => item.HospitalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HospitalAddress)
+            </td>
+            <td>
+                <a asp-action="FacilityDetails" asp-route-id="@item.HospitalId" class="btn btn-warning btn-sm">View Facility</a> |
+                <a asp-action="DoctorDetails" asp-route-id="@item.HospitalId" class="btn btn-info btn-sm">View Doctor</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

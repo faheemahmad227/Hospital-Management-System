@@ -1,0 +1,80 @@
+﻿@model HospitalManagementUI.Models.DTOs.BillingDTO
+
+@{
+    ViewData["Title"] = "GenerateBill";
+}
+
+<h1>Generate Bill</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="GenerateBill">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input asp-for="AppointmentId" value="@ViewBag.Id" class="form-control"  type="hidden" />
+                <span asp-validation-for="AppointmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HospitalId" class="control-label"></label>
+                <select asp-for="HospitalId" class="form-control" asp-items="@ViewBag.SelectListHospital"></select>
+                <span asp-validation-for="HospitalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConsultationsCharge" class="control-label"></label>
+                <p class="form-control">@ViewBag.ConsultationCharge</p>
+                <span asp-validation-for="ConsultationsCharge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LaboratoryServiceCharge" class="control-label"></label>
+                <p class="form-control">@ViewBag.LabCharge</p>
+                <span asp-validation-for="LaboratoryServiceCharge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhysiotherapyServiceCharge" class="control-label"></label>
+                <p class="form-control">@ViewBag.PhysioCharge</p>
+                <span asp-validation-for="PhysiotherapyServiceCharge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ECGServiceCharge" class="control-label"></label>
+                <p class="form-control">@ViewBag.eCGCharge</p>
+                <span asp-validation-for="ECGServiceCharge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RadiologyServiceCharge" class="control-label"></label>
+                <p class="form-control">@ViewBag.RadioCharge</p>
+                <span asp-validation-for="RadiologyServiceCharge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmbulanceServiceCharge" class="control-label"></label>
+                <p class="form-control">@ViewBag.AmbulanceCharge</p>
+                <span asp-validation-for="AmbulanceServiceCharge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalAmount" class="control-label"></label>
+                <p class="form-control">@ViewBag.totalCharge</p>
+                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentStatus" class="control-label"></label>
+                <select asp-for="PaymentStatus" class="form-control">
+                    <option>Select Payment Status</option>
+                    <option>Pending</option>
+                    <option>Paid</option>
+                </select>
+                <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

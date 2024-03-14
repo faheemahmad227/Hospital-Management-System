@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="jumbotron1">
+    <div class="jumbotron slideInUp delay1" id="divMain1" style="padding-top:0px; padding-bottom: 30px; margin-left: 86px;
+        background: rgba(0, 0, 0, 0.5); margin-right:86px;">
+        <img class="navbar-brand slideInLeft delay2" alt="" style=" height:100px; padding-top: 0px; padding: 10px" />
+        <h1 class="text-center slideInLeft delay2" style="font-size:45px; margin-top:-70px; color:white"><b>Welcome to Patient Dashboard</b></h1>
+    </div>
+</div>
+@if (TempData["Success"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+}
+<div class="text-center" style="margin-top:50px;">
+    <div class="row margin">
+        <div class="col-md-4" style="margin-top:20px;">
+            <a asp-action="BookAppointment" class="btn btn-primary btn-lg"><b>Book Appointment</b></a>
+        </div>
+        <div class="col-md-4" style="margin-top:20px;">
+            <a asp-action="ListAppointment" class="btn btn-danger btn-lg"><b>View Appointment Status</b></a>
+        </div>
+        <div class="col-md-4" style="margin-top:20px;">
+            <a asp-action="ListHospital" class="btn btn-info btn-lg"><b>View Hospitals</b></a>
+        </div>
+    </div>
+    <div class="row margin">
+
+        <div class="col-md-4" style="margin-top:20px;">
+            <a asp-action="BillDetail" class="btn btn-primary btn-lg"><b>Billing History</b></a>
+        </div>
+    </div>
+</div>

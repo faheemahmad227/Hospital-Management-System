@@ -1,0 +1,79 @@
+﻿@model IEnumerable<HospitalManagementUI.Models.DTOs.AppointmentFacilities>
+
+@{
+    ViewData["Title"] = "AppointmentList";
+}
+
+<h2>Appointmnet History</h2>
+<p>
+    <a asp-action="Index" class="btn btn-info btn-lg">Back to Dashboard</a>
+</p>
+@if (TempData["Success"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+}
+<table class="table">
+    <thead>
+        <tr style="background-color: #0074ab; color:white;">
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConsultationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysiotherapyServiceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LaboratoryServiceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ECGServiceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RadiologyServiceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmbulanceServiceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="background-color: #e6f7ff;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConsultationId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhysiotherapyServiceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LaboratoryServiceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ECGServiceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RadiologyServiceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AmbulanceServiceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="AppointmentEdit" asp-route-id="@item.AppointmentId" class="btn btn-warning btn-sm">Update Status</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

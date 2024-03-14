@@ -1,0 +1,43 @@
+﻿@model HospitalManagementUI.Models.DTOs.Appointment
+
+@{
+    ViewData["Title"] = "AppointmentEdit";
+}
+
+<h2>Update Appointment Status</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AppointmentEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(Model => Model.AppointmentId)
+            @Html.HiddenFor(Model => Model.HospitalId)
+            @Html.HiddenFor(Model => Model.PatientId)
+            @Html.HiddenFor(Model => Model.DoctorId)
+            @Html.HiddenFor(Model => Model.Remarks)
+            @Html.HiddenFor(Model => Model.DateOfAppointment)
+            @Html.HiddenFor(Model => Model.MedicalHistory)
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control">
+                    <option>Reject</option>
+                    <option>Confirm</option>
+                    <option>Close</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AppointmentList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

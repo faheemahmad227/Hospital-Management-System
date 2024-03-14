@@ -1,0 +1,53 @@
+﻿@model HospitalManagementUI.Models.DTOs.FacilityDTO
+
+@{
+    ViewData["Title"] = "CreateFacility";
+}
+
+<h2>Add Facility</h2>
+<div>
+    <a asp-action="Index" class="btn btn-primary" style="margin-bottom:10px;">Back to Dashboard</a>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateFacility">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="HospitalId" class="control-label"></label>
+                <select class="form-control" asp-items="@ViewBag.SelectListHospital" asp-for="HospitalId"></select>
+                <span asp-validation-for="HospitalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacilityName" class="control-label"></label>
+                <select asp-for="FacilityName" class="form-control">
+                    <option>OPD</option>
+                    <option>Dental facility</option>
+                    <option>Ward/ Indoor facility</option>
+                    <option>Minor OT/ Dressing Room</option>
+                    <option>Physiotherapy</option>
+                    <option>Laboratory services</option>
+                    <option>ECG Services</option>
+                    <option>Pharmacy</option>
+                    <option>Radiology/X-ray facility</option>
+                    <option>Ambulance Services</option>
+                </select>
+                <span asp-validation-for="FacilityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacilityDescription" class="control-label"></label>
+                @Html.TextAreaFor(m => m.FacilityDescription, new { @class = "form-control" })
+                <span asp-validation-for="FacilityDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

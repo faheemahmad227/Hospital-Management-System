@@ -1,0 +1,40 @@
+﻿@model HospitalManagementUI.Models.DTOs.FacilityDTO
+
+@{
+    ViewData["Title"] = "FacilityEdit";
+}
+
+<h2>Edit Facility Details</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FacilityEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(Model => Model.Id)
+            @Html.HiddenFor(Model => Model.HospitalId)
+            
+            <div class="form-group">
+                <label asp-for="FacilityName" class="control-label"></label>
+                <input asp-for="FacilityName" class="form-control" />
+                <span asp-validation-for="FacilityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacilityDescription" class="control-label"></label>
+                <input asp-for="FacilityDescription" class="form-control" />
+                <span asp-validation-for="FacilityDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListFacility">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

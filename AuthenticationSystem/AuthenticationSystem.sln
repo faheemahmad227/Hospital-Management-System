@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationSystem", "AuthenticationSystem\AuthenticationSystem.csproj", "{EC842C33-6D2C-4B26-8B98-C9A534A46212}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8EC1DDB6-1EBB-450B-9786-869E99CB01ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationSystem.IntegrationTests", "AuthenticationSystem.IntegrationTests\AuthenticationSystem.IntegrationTests.csproj", "{D3A4463F-A91C-4241-960D-F91EB7E0E6F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC842C33-6D2C-4B26-8B98-C9A534A46212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC842C33-6D2C-4B26-8B98-C9A534A46212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC842C33-6D2C-4B26-8B98-C9A534A46212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC842C33-6D2C-4B26-8B98-C9A534A46212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3A4463F-A91C-4241-960D-F91EB7E0E6F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A4463F-A91C-4241-960D-F91EB7E0E6F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A4463F-A91C-4241-960D-F91EB7E0E6F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A4463F-A91C-4241-960D-F91EB7E0E6F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D3A4463F-A91C-4241-960D-F91EB7E0E6F5} = {8EC1DDB6-1EBB-450B-9786-869E99CB01ED}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E54CFB25-316A-4E93-929F-26AA7BA8FAC9}
+	EndGlobalSection
+EndGlobal

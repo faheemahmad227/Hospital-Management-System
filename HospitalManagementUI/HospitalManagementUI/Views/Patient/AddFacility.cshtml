@@ -1,0 +1,68 @@
+﻿@model HospitalManagementUI.Models.DTOs.AppointmentFacilitiesDTO
+
+@{
+    ViewData["Title"] = "AddFacility";
+}
+
+<h3>Add Facility to your Appointment</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddFacility">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="AppointmentId" class="control-label"></label>
+                <select asp-for="AppointmentId" class="form-control" asp-items="@ViewBag.SelectListAppointment"></select>
+                <span asp-validation-for="AppointmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HospitalId" class="control-label"></label>
+                <select asp-for="HospitalId" class="form-control" asp-items="@ViewBag.SelectListHospital"></select>
+                <span asp-validation-for="HospitalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConsultationId" class="control-label"></label>
+                <select asp-for="ConsultationId" class="form-control" asp-items="@ViewBag.ConsultationList"><option>Choose</option></select>
+                <span asp-validation-for="ConsultationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhysiotherapyServiceId" class="control-label"></label>
+                <select asp-for="PhysiotherapyServiceId" class="form-control" asp-items="@ViewBag.PhysioList"><option>Choose</option></select>
+                <span asp-validation-for="PhysiotherapyServiceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LaboratoryServiceId" class="control-label"></label>
+                <select asp-for="LaboratoryServiceId" class="form-control" asp-items="@ViewBag.LabList"><option>Choose</option></select>
+                <span asp-validation-for="LaboratoryServiceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ECGServiceId" class="control-label"></label>
+                <select asp-for="ECGServiceId" class="form-control" asp-items="@ViewBag.ECGList"><option>Choose</option></select>
+                <span asp-validation-for="ECGServiceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RadiologyServiceId" class="control-label"></label>
+                <select asp-for="RadiologyServiceId" class="form-control" asp-items="@ViewBag.RadioList"><option>Choose</option></select>
+                <span asp-validation-for="RadiologyServiceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmbulanceServiceId" class="control-label"></label>
+                <select asp-for="AmbulanceServiceId" class="form-control" asp-items="@ViewBag.AmbulanceList"><option>Choose</option></select>
+                <span asp-validation-for="AmbulanceServiceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
